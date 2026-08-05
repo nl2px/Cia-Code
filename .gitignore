@@ -1,0 +1,28 @@
+# Dépendances
+node_modules/
+
+# Build
+build/
+dist/
+
+# Fichiers d'environnement (contient des clés API)
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Electron builder
+dist/
+release/
+
+# Fichiers originaux (sources non-obfusquées — ne pas publier)
+src/_originals/
+src/main/_originals/
+*/_originals/

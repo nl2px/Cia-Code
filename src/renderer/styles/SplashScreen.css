@@ -1,0 +1,106 @@
+.splash {
+  position: fixed;
+  inset: 0;
+  background: #020810;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.splash.fade-out {
+  opacity: 0;
+  transform: scale(1.03);
+  pointer-events: none;
+}
+
+.splash-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ─── Logo ─────────────────────────────────────────────────────────────────── */
+.splash-logo {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  filter: drop-shadow(0 0 30px #0a66c2) drop-shadow(0 0 60px rgba(10,102,194,0.4));
+}
+
+.splash-logo.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Rotation lente du cercle extérieur */
+.splash-logo svg { animation: rotateSlow 20s linear infinite; transform-origin: center; }
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ─── Boot log ──────────────────────────────────────────────────────────────── */
+.splash-log {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #4a9eff;
+  text-align: left;
+  min-height: 90px;
+  width: 300px;
+  line-height: 1.7;
+}
+
+.log-line {
+  animation: fadeIn 0.25s ease;
+}
+.log-line.ready { color: #3fb950; font-weight: 700; }
+
+.cursor {
+  animation: blink 0.7s step-end infinite;
+  color: #4a9eff;
+}
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes fadeIn { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; } }
+
+/* ─── Progress bar ──────────────────────────────────────────────────────────── */
+.splash-bar {
+  width: 300px;
+  height: 3px;
+  background: #0a1a2e;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.splash-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0a44a0, #3a8fd6, #7ec8e3);
+  border-radius: 2px;
+  transition: width 0.35s ease;
+  box-shadow: 0 0 8px #3a8fd6;
+}
+
+/* ─── Links ─────────────────────────────────────────────────────────────────── */
+.splash-links {
+  display: flex;
+  gap: 16px;
+}
+
+.splash-links a {
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  color: #3a6ea8;
+  text-decoration: none;
+  padding: 4px 10px;
+  border: 1px solid #0d2545;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+.splash-links a:hover {
+  color: #7ec8e3;
+  border-color: #3a8fd6;
+  background: rgba(10,68,160,0.2);
+}

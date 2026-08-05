@@ -1,0 +1,191 @@
+/* ─── Sidebar panel ──────────────────────────────────────────────────────── */
+.sidebar-panel {
+  background: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.sidebar-panel-title {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px 0 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.sidebar-panel-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.sb-icon-btn {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  font-size: 14px;
+  transition: color var(--transition), background var(--transition);
+}
+.sb-icon-btn:hover { color: var(--text-primary); background: var(--bg-hover); }
+
+/* ─── File tree ──────────────────────────────────────────────────────────── */
+.sidebar-tree {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebar-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.sidebar-empty p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.sidebar-empty button {
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 14px;
+  border-radius: var(--radius);
+  transition: opacity var(--transition);
+}
+.sidebar-empty button:hover { opacity: 0.85; }
+
+/* Root folder label */
+.root-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  height: 26px;
+  cursor: pointer;
+}
+.root-label:hover { background: var(--bg-hover); }
+
+/* File entries */
+.file-entry {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 12px;
+  border: 1px solid transparent;
+}
+.file-entry:hover { background: var(--bg-hover); }
+.file-entry.selected { background: var(--bg-active); }
+
+.entry-arrow {
+  width: 16px;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.entry-icon {
+  width: 18px;
+  flex-shrink: 0;
+  font-size: 13px;
+  text-align: center;
+  margin-right: 4px;
+}
+
+.entry-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  font-size: 13px;
+}
+
+.rename-input {
+  flex: 1;
+  background: var(--bg-selection);
+  border: 1px solid var(--accent);
+  border-radius: 0;
+  padding: 0 4px;
+  font-size: 13px;
+  outline: none;
+  color: var(--text-primary);
+  height: 20px;
+  min-width: 0;
+}
+
+/* ─── Context menu ───────────────────────────────────────────────────────── */
+.ctx-menu {
+  position: fixed;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  z-index: 9999;
+  min-width: 200px;
+  padding: 4px 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+
+.ctx-item {
+  padding: 5px 24px;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background var(--transition);
+}
+.ctx-item:hover { background: var(--bg-selection); }
+.ctx-item.danger { color: var(--red); }
+
+.ctx-sep {
+  height: 1px;
+  background: var(--border);
+  margin: 4px 0;
+}
+
+.ctx-shortcut {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ─── Resize handle ──────────────────────────────────────────────────────── */
+.sidebar-resize {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  cursor: col-resize;
+  z-index: 10;
+}
+.sidebar-resize:hover,
+.sidebar-resize:active { background: var(--accent); opacity: 0.6; }

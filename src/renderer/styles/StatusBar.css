@@ -1,0 +1,37 @@
+/* ─── VS Code style status bar ───────────────────────────────────────────── */
+.status-bar {
+  display: flex;
+  align-items: center;
+  height: var(--statusbar-h);
+  background: var(--statusbar-bg);
+  padding: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.status-left,
+.status-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.status-right { margin-left: auto; }
+
+.status-item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 8px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.9);
+  cursor: default;
+  white-space: nowrap;
+  transition: background var(--transition);
+  gap: 4px;
+}
+.status-item:hover { background: rgba(255,255,255,0.12); }
+
+.status-item.branch { font-weight: 600; gap: 4px; }
+.status-item.errors { gap: 4px; }
+.status-item.unsaved { color: #fff; }
